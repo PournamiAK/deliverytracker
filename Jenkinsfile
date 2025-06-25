@@ -29,11 +29,19 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t $IMAGE_NAME .'
-            }
-        }
+	stage('Prepare JAR') {
+    steps {
+        sh 'cp target/deliverytracker-0.0.1-SNAPSHOT.jar .'
+    }
+}
+
+stage('Docker Build') {
+    steps {
+        sh 'docker build -t $IMAGE_NAME .'
+    }
+}
+
+
 
         // Optional: Push to DockerHub (Uncomment if needed)
         // stage('Push to DockerHub') {
