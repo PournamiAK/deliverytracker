@@ -29,15 +29,9 @@ pipeline {
             }
         }
 
-	stage('Prepare JAR') {
-    steps {
-        sh 'cp target/deliverytracker-0.0.1-SNAPSHOT.jar .'
-    }
-}
-
 stage('Docker Build') {
     steps {
-        sh 'cp target/deliverytracker-0.0.1-SNAPSHOT.jar docker-app.jar'
+        sh 'cp target/deliverytracker-0.0.1-SNAPSHOT.jar app.jar'
         sh 'docker build -t $IMAGE_NAME .'
     }
 }
