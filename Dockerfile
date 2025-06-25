@@ -1,4 +1,4 @@
 FROM openjdk:21-jdk-slim
 VOLUME /tmp
-COPY deliverytracker-0.0.1-SNAPSHOT.jar app.jar
+COPY docker-app.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]

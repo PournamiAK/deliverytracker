@@ -37,11 +37,10 @@ pipeline {
 
 stage('Docker Build') {
     steps {
+        sh 'cp target/deliverytracker-0.0.1-SNAPSHOT.jar docker-app.jar'
         sh 'docker build -t $IMAGE_NAME .'
     }
 }
-
-
 
         // Optional: Push to DockerHub (Uncomment if needed)
         // stage('Push to DockerHub') {
